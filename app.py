@@ -4,6 +4,14 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from PIL import Image
 
+import gdown
+import os
+import tensorflow as tf
+
+if not os.path.exists("model.keras"):
+    url = "https://drive.google.com/uc?id=1uIlt0KUmXBEfaPNUNhrsvKBOKhJq6OY1"
+    gdown.download(url, "model.keras", quiet=False)
+
 model = tf.keras.models.load_model("model.keras", compile=False)
 
 classes = ['MildDemented','ModerateDemented','NonDemented','VeryMildDemented']
